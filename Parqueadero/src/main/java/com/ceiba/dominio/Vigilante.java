@@ -5,7 +5,7 @@ import com.ceiba.repositorio.RepositorioVehiculo;
 
 public class Vigilante {
 
-	public static final String MENSAJE_DIA_INHABILITADO_PLACA = "No puede ingresar porque no está en un dia habil";
+	public static final String MENSAJE_DIA_INHABILITADO_PLACA = "No puede ingresar porque no esta en un dia habil";
 
 	private RepositorioVehiculo repositorioVehiculo;
 	private RepositorioParqueadero repositorioParqueadero;
@@ -71,7 +71,7 @@ public class Vigilante {
 	}
 
 	/**
-	 * Valida si el vehiculo de acuerdo a su placa puede ingresar ese día
+	 * Valida si el vehiculo de acuerdo a su placa puede ingresar ese dia
 	 * 
 	 * @param placa
 	 * @return

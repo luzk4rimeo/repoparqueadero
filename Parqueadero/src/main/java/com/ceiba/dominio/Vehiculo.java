@@ -67,7 +67,5 @@ public class Vehiculo {
 	public void setCilindraje(Integer cilindraje) {
 		this.cilindraje = cilindraje;
 	}
-	
-	
 
 }

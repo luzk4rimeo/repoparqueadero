@@ -1,21 +1,19 @@
 package com.ceiba.dominio;
 
 import com.ceiba.repositorio.RepositorioParqueadero;
-import com.ceiba.repositorio.RepositorioVehiculo;
 
 public class Vigilante {
 
 	public static final String MENSAJE_DIA_INHABILITADO_PLACA = "No puede ingresar porque no esta en un dia habil";
 
-	private RepositorioVehiculo repositorioVehiculo;
+	
 	private RepositorioParqueadero repositorioParqueadero;
 
 	/**
 	 * @param repositorioVehiculo
 	 * @param repositorioParqueadero
 	 */
-	public Vigilante(RepositorioVehiculo repositorioVehiculo, RepositorioParqueadero repositorioParqueadero) {
-		this.repositorioVehiculo = repositorioVehiculo;
+	public Vigilante(RepositorioParqueadero repositorioParqueadero) {
 		this.repositorioParqueadero = repositorioParqueadero;
 	}
 
@@ -25,11 +23,6 @@ public class Vigilante {
 	 * @param vehiculo
 	 */
 	public void recibirVehiculo(Vehiculo vehiculo) {
-		if (validarCupoDisponible()) {
-			if (validarDiaPlaca("IPY735")) {
-				System.out.println("Vehiculo recibido");
-			}
-		}
 	}
 
 	/**
@@ -37,7 +30,8 @@ public class Vigilante {
 	 * 
 	 * @return
 	 */
-	public boolean retirarVehiculo() {
+	public boolean retirarVehiculo(Parqueadero parqueadero) {
+		repositorioParqueadero.retirar(parqueadero);
 		return true;
 	}
 
@@ -46,7 +40,7 @@ public class Vigilante {
 	 * 
 	 * @return
 	 */
-	public boolean validarCilindraje() {
+	public boolean validarCilindraje(int cilindraje) {
 		return true;
 	}
 
@@ -56,7 +50,7 @@ public class Vigilante {
 	 * 
 	 * @return
 	 */
-	public int calcularHoraServicio() {
+	public int calcularHoraServicio(Parqueadero parqueadero) {
 		return 1;
 	}
 
@@ -66,7 +60,7 @@ public class Vigilante {
 	 * 
 	 * @return
 	 */
-	public Integer cobrar() {
+	public Integer cobrar(int horas) {
 		return 0;
 	}
 
@@ -87,7 +81,6 @@ public class Vigilante {
 	 */
 	public boolean validarCupoDisponible() {
 		return repositorioParqueadero.obtenerCupoDisponible();
-		//
 	}
 
 }

@@ -24,14 +24,16 @@ public interface RepositorioParqueadero {
 	 * @param parqueadero
 	 */
 	void agregar(Parqueadero parqueadero);
-	
 	/**
-	 * Permite obtener los datos del cupo asignado por placa
-	 * @param placa
+	 * 
+	 * @param tipoVehiulo
 	 * @return
 	 */
-	Parqueadero obtener(String placa);
-	
 	boolean obtenerCupoDisponible();
+	/**
+	 * Permite retirar un registro parqueadero
+	 * @param parqueadero
+	 */
+	boolean retirar(Parqueadero parqueadero);
 	
 }

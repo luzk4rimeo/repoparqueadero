@@ -19,16 +19,15 @@ public class RepositorioParqueaderoPersistencia implements RepositorioParqueader
 	}
 
 	@Override
-	public Parqueadero obtener(String placa) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean obtenerCupoDisponible() {
-		// TODO Auto-generated method stub
-		System.out.println("hhshshshs");
+		// TODO Auto-generated method stub		
 		return false;
+	}
+	
+	@Override
+	public boolean retirar(Parqueadero parqueadero) {
+		// TODO Auto-generated method stub	
+		return true;
 	}
 
 }

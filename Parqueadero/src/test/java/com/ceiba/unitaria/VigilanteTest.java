@@ -10,9 +10,11 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
+import com.ceiba.dominio.Parqueadero;
 import com.ceiba.dominio.Vigilante;
 import com.ceiba.repositorio.RepositorioParqueadero;
-import com.ceiba.repositorio.RepositorioVehiculo;
+
+import testdatabuilder.VehiculoTestDataBuilder;
 
 /**
  * @author luz.ocampo
@@ -25,11 +27,10 @@ public class VigilanteTest {
 
 		// arrange
 		RepositorioParqueadero repositorioParqueadero = mock(RepositorioParqueadero.class);
-		RepositorioVehiculo repositorioVehiculo = mock(RepositorioVehiculo.class);
 
 		when(repositorioParqueadero.obtenerCupoDisponible()).thenReturn(true);
 
-		Vigilante vigilante = new Vigilante(repositorioVehiculo, repositorioParqueadero);
+		Vigilante vigilante = new Vigilante(repositorioParqueadero);
 		// act
 		boolean cupoDisponible = vigilante.validarCupoDisponible();
 
@@ -41,11 +42,10 @@ public class VigilanteTest {
 	public void validarDiaPlacaTest() {
 		// arrange
 		RepositorioParqueadero repositorioParqueadero = mock(RepositorioParqueadero.class);
-		RepositorioVehiculo repositorioVehiculo = mock(RepositorioVehiculo.class);
 
 //		when(Vigilan.validarDiaPlaca()).thenReturn(true);
 
-		Vigilante vigilante = new Vigilante(repositorioVehiculo, repositorioParqueadero);
+		Vigilante vigilante = new Vigilante(repositorioParqueadero);
 		// act
 		boolean placaPemritida = vigilante.validarDiaPlaca("IPY735");
 
@@ -54,16 +54,25 @@ public class VigilanteTest {
 	}
 	
 	@Test
+	public void recibirVehiculo() {
+		// arrange
+		RepositorioParqueadero repositorioParqueadero = mock(RepositorioParqueadero.class);
+		Vigilante vigilante = new Vigilante(repositorioParqueadero);
+		VehiculoTestDataBuilder vehiculoTestDataBuilder = new VehiculoTestDataBuilder();
+		
+		
+	}
+	
+	@Test
 	public void calcularHoraServicioMayorCeroTest() {
 		// arrange
 		RepositorioParqueadero repositorioParqueadero = mock(RepositorioParqueadero.class);
-		RepositorioVehiculo repositorioVehiculo = mock(RepositorioVehiculo.class);
-
+		Parqueadero parqueadero = mock(Parqueadero.class);
 //		when(Vigilan.validarDiaPlaca()).thenReturn(true);
 
-		Vigilante vigilante = new Vigilante(repositorioVehiculo, repositorioParqueadero);
+		Vigilante vigilante = new Vigilante(repositorioParqueadero);
 		// act
-		int horas = vigilante.calcularHoraServicio();
+		int horas = vigilante.calcularHoraServicio(parqueadero);
 
 		// assert
 		assertTrue(horas>0);
